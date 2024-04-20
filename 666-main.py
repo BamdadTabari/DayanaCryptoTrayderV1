@@ -1,44 +1,25 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import requests
-from bs4 import BeautifulSoup
 import time
 
-api_key_no1_navasan = "freekj9W6HqoQWqoWChjRVxuIQiL9QH9 "
-def get_dollar_price_in_iran():
-        # Placeholder website URL
-    url = "https://irarz.com/"
-    headers = {
+api_key_no1_navasan = "freekj9W6HqoQWqoWChjRVxuIQiL9QH9"
+headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
             }
-    # Make a request to the website
+
+def get_dollar_price_in_iran():
     for _ in range(3): # Retry up to 3 times
         try:
-            response = requests.get(url, headers=headers, timeout=100)
-            break # If successful, break the loop
+            url = f"http://api.navasan.tech/latest/?api_key={api_key_no1_navasan}"
+            response = requests.get(url, headers=headers, timeout=10)
+            data = response.json()
+            iran_rate = data['rates']['IRR'] # Assuming 'IRR' is the currency code for Iranian Toman
+            return iran_rate
         except requests.exceptions.RequestException as e:
             print(f"Request failed: {e}. Retrying...")
             time.sleep(5) # Wait for 5 seconds before retrying
-
-    # Check if the request was successful
-    if response.status_code == 200:
-        # Parse the HTML content of the page
-        soup = BeautifulSoup(response.text, 'html.parser')
-        # Assuming the prices are in elements with specific IDs or classes
-        # You'll need to inspect the website to find the correct selectors
-        dollar_price_element = soup.find(id='usdmax')
-        
-        if dollar_price_element:
-            # Extract the prices
-            dollar_price = dollar_price_element.text
-           
-            return dollar_price # all prices are in "Rial"
-        else:
-            print("Failed to find price elements.")
-            return None
-    else:
-        print("Failed to fetch page. Status code:", response.status_code)
-        return None
+    
 
 def analyze_and_visualize(price):
     # For simplicity, we'll use the current date and time for the plot
