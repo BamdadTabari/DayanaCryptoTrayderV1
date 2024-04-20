@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 
+api_key_no1_navasan = "freekj9W6HqoQWqoWChjRVxuIQiL9QH9 "
 def get_dollar_price_in_iran():
         # Placeholder website URL
     url = "https://irarz.com/"
