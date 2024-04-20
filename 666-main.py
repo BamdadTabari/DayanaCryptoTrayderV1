@@ -12,7 +12,7 @@ def get_dollar_price_in_iran():
     for _ in range(3): # Retry up to 3 times
         try:
             url = f"http://api.navasan.tech/latest/?api_key={api_key_no1_navasan}"
-            response = requests.get(url, headers=headers, timeout=10)
+            response = requests.get(url, headers=headers, timeout=100)
             data = response.json()
             iran_rate = data['rates']['IRR'] # Assuming 'IRR' is the currency code for Iranian Toman
             return iran_rate
