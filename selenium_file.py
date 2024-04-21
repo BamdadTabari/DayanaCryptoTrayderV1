@@ -1,6 +1,6 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.service import Service
+from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,8 +8,8 @@ from datetime import datetime
 
 def get_dollar_price_in_iran():
     # Setup WebDriver
-    webdriver_service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=webdriver_service)
+    webdriver_service = Service(GeckoDriverManager().install())
+    driver = webdriver.Firefox(service=webdriver_service)
 
     # Navigate to the website
     url = "https://nobitex.ir/"
@@ -49,3 +49,4 @@ def hello_world():
     analyze_and_visualize(dollar_price_in_iran)
 
 hello_world()
+    

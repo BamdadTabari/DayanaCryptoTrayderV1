@@ -122,3 +122,7 @@ hello_world()
 This code uses Selenium with Firefox to fetch the dollar price in Iran. Make sure to replace the class name "text-title fw-bold fs-14-sm fs-18-md ml-1" with the actual class name or ID of the element containing the dollar price on the website you're scraping. You can find this by inspecting the website's HTML source code.
 
 This should work on Kali Linux without requiring Google Chrome. The webdriver_manager package will automatically handle the download and setup of the Firefox WebDriver (GeckoDriver) for you.
+
++ problem: Im using kali, I have not chrome
+
+- do this=> apt install firefox-esr
