@@ -12,12 +12,12 @@ def get_dollar_price_in_iran():
     driver = webdriver.Firefox(service=webdriver_service)
 
     # Navigate to the website
-    url = "https://nobitex.ir/"
+    url = "https://irarz.com/"
     driver.get(url)
 
     # Assuming the prices are in elements with specific IDs or classes
     # You'll need to inspect the website to find the correct selectors
-    dollar_price_element = driver.find_element(By.CLASS_NAME, "text-title fw-bold fs-14-sm fs-18-md ml-1")
+    dollar_price_element = driver.find_element(By.ID, "usdmax")
     
     if dollar_price_element:
         # Extract the prices
