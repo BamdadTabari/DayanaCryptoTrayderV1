@@ -30,3 +30,27 @@ Plus Hello World.py
 
 + ok , I just add 1-get-dollar-price.py => todo (fix the code and send to you)
 ok. go for next step
+
+- .....
+
++ ok ok ok, lets cut the crap and go for selenium instead of bs4 
+
+
+- ok => To replace the requests and BeautifulSoup (bs4) with Selenium for web scraping, you'll need to install Selenium and a WebDriver for the browser you intend to use (e.g., ChromeDriver for Google Chrome). Selenium allows you to automate browser actions, which can be useful for interacting with JavaScript-heavy websites or for navigating through pages that require user interaction.
+
+First, ensure you have Selenium installed. If not, you can install it using pip:
+
+pip install selenium
+
+Next, download the appropriate WebDriver for your browser. For Chrome, you can download ChromeDriver from here. Make sure to download the version that matches your browser version.
+
+Once you have Selenium and the WebDriver installed, you can modify your get_dollar_price_in_iran function to use Selenium. Here's how you can do it:
+
+*** code is in the selenium_file.py
+
+
++  webdriver_manager.chrome" could not be resolved
+
+- pip install webdriver_manager
+
++ ok one problem. Im using kali linux and I dont have chrome. refactor the code please.
